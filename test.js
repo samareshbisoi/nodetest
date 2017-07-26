@@ -6,4 +6,8 @@ var https=require('https');
 fileYo.writeFile(__dirname+"/index.html", "<h1> Welcome to the World of Node </h1>");
 var fboLogo="https://freshboxoffice.com/img/fbo-w.png";
 var fboFile=fileYo.createWriteStream(__dirname + "/fbologo.jpg");
-var request=https.get(fboLogo,function(response){response.pipe();});
+var request=https.get(fboLogo,function(response)
+{
+  response.pipe(fboFile);
+
+});
